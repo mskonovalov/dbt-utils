@@ -20,7 +20,7 @@
 {%- set columns_csv=column_list | join(', ') %}
 
 
-with validation_errors as (
+with test_table as (
 
     select
         {{ columns_csv }}
@@ -30,8 +30,9 @@ with validation_errors as (
 
 )
 
-select *
-from validation_errors
+select 
+  {{ columns_csv }}
+from test_table
 
 
 {% endmacro %}
